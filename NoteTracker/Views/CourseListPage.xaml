@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:NoteTracker.ViewModels;assembly=NoteTracker"
+             mc:Ignorable="d"
+             x:Class="NoteTracker.Views.CourseListPage">
+    <Shell.TitleView>
+        <Image Source="wgu_logo.png"
+               HorizontalOptions="Start"
+               VerticalOptions="Center" />
+    </Shell.TitleView>
+
+    <ContentPage.BindingContext>
+        <viewModels:CourseListViewModel />
+    </ContentPage.BindingContext>
+
+    
+    <ContentPage.ToolbarItems>
+        <!--Put notification here-->
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <Label Text="My Courses" FontSize="Title" HorizontalOptions="Center" Margin="20, 0, 20, 0"></Label>
+        <Label Text="{Binding Term.Name}" FontSize="Title" HorizontalOptions="Center" Margin="20, 0, 20, 0"></Label>
+        <ListView x:Name="CourseListView"
+                ItemsSource="{Binding Courses}"
+                VerticalOptions="FillAndExpand"
+                HasUnevenRows="true"
+                RefreshCommand="{Binding LoadItemsCommand}"
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                CachingStrategy="RecycleElement"
+                ItemTapped="OnItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10" BackgroundColor="{Binding BackgroundColor}">
+                            <Label Text="{Binding Name}" 
+                                d:Text="{Binding .}"
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                            <Label Text="{Binding CourseStatus}" 
+                                d:Text="Course Status"
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+                            <StackLayout Padding="10" 
+                                         BackgroundColor="{Binding BackgroundColor}" 
+                                         HorizontalOptions="Center"
+                                         Orientation="Horizontal">
+                                <Button x:Name="CourseNotes" 
+                                        Text="Notes" 
+                                        BackgroundColor="DarkBlue" 
+                                        TextColor="White"
+                                        VerticalOptions="Center" 
+                                        Clicked="CourseNotes_onClick" 
+                                        IsVisible="{Binding Expanded}" 
+                                        WidthRequest="75"
+                                        CommandParameter="{Binding Course.Id}"/>
+                                <Button x:Name="CourseAssessments" 
+                                        Text="Assessments" 
+                                        BackgroundColor="DarkSlateBlue" 
+                                        TextColor="White"
+                                        VerticalOptions="Center" 
+                                        Clicked="CourseAssessments_onClick" 
+                                        IsVisible="{Binding Expanded}" 
+                                        CommandParameter="{Binding Course.Id}"/>
+                                <Button x:Name="EditCourse" 
+                                        Text="Edit" 
+                                        BackgroundColor="NavajoWhite" 
+                                        VerticalOptions="Center" 
+                                        Clicked="EditCourse_onClick" 
+                                        IsVisible="{Binding Expanded}" 
+                                        WidthRequest="75"
+                                        CommandParameter="{Binding Course.Id}" />
+                                <Button x:Name="DeleteCourse" 
+                                        Text="Delete" 
+                                        BackgroundColor="DarkRed" 
+                                        TextColor="White"
+                                        VerticalOptions="Center" 
+                                        Clicked="DeleteCourse_onClick" 
+                                        IsVisible="{Binding Expanded}" 
+                                        WidthRequest="75"
+                                        CommandParameter="{Binding Course.Id}" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="AddCourse" Text="Add a Course" BackgroundColor="Green" VerticalOptions="Center" Clicked="AddCourse_Clicked"></Button>
+    </StackLayout>
+</ContentPage>

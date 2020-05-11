@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:NoteTracker.ViewModels;assembly=NoteTracker"
+             mc:Ignorable="d"
+             x:Class="NoteTracker.Views.AssessmentListPage">
+<Shell.TitleView>
+        <Image Source="wgu_logo.png"
+               HorizontalOptions="Start"
+               VerticalOptions="Center" />
+    </Shell.TitleView>
+
+    <ContentPage.BindingContext>
+        <viewModels:AssessmentListViewModel />
+    </ContentPage.BindingContext>
+
+    
+    <ContentPage.ToolbarItems>
+        <!--Put notification here-->
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <Label Text="My Assessments" FontSize="Title" HorizontalOptions="Center" Margin="20, 0, 20, 0"></Label>
+        <Label Text="{Binding Course.Name}" FontSize="Title" HorizontalOptions="Center" Margin="20, 0, 20, 0"></Label>
+        <ListView x:Name="AssessmentListView"
+                ItemsSource="{Binding Assessments}"
+                VerticalOptions="FillAndExpand"
+                HasUnevenRows="true"
+                RefreshCommand="{Binding LoadItemsCommand}"
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                CachingStrategy="RecycleElement"
+                ItemTapped="OnItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10" BackgroundColor="{Binding BackgroundColor}">
+                            <Label Text="{Binding Assessment.Name}" 
+                                d:Text="{Binding .}"
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                            <Label Text="{Binding Assessment.StartDateTime}" 
+                                d:Text="Start Date Time"
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+                            <StackLayout Padding="10" BackgroundColor="{Binding BackgroundColor}" Orientation="Horizontal">
+                                <Button x:Name="EditAssessment" 
+                                        Text="Edit" 
+                                        BackgroundColor="NavajoWhite" 
+                                        VerticalOptions="Center" 
+                                        Clicked="EditAssessment_onClick" 
+                                        IsVisible="{Binding Expanded}" 
+                                        CommandParameter="{Binding Assessment.Id}" />
+                                <Button x:Name="DeleteAssessment" 
+                                        Text="Delete" 
+                                        BackgroundColor="DarkRed" 
+                                        TextColor="White"
+                                        VerticalOptions="Center" 
+                                        Clicked="DeleteAssessment_onClick" 
+                                        IsVisible="{Binding Expanded}" 
+                                        CommandParameter="{Binding Assessment.Id}" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="AddAssessment" Text="Add an Assessment" BackgroundColor="Green" VerticalOptions="Center" Clicked="AddAssessment_Clicked" IsVisible="{Binding CanAddAssessments}"></Button>
+    </StackLayout>
+</ContentPage>

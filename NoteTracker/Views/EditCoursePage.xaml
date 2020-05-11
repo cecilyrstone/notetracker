@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:NoteTracker.ViewModels;assembly=NoteTracker"
+             xmlns:helpers="clr-namespace:NoteTracker.Helpers;assembly=NoteTracker"
+             xmlns:enums="clr-namespace:NoteTracker.Enums;assembly=NoteTracker"
+             mc:Ignorable="d"
+             x:Class="NoteTracker.Views.EditCoursePage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
+        <ToolbarItem Text="Save" Clicked="Save_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.BindingContext>
+        <viewModels:CourseViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="15">
+                <Label Text="{Binding ErrorText}" FontSize="Medium" />
+                <Label Text="Course Name" FontSize="Medium" />
+                <Entry Text="{Binding Name}" d:Text="Term Name" FontSize="Small" />
+                <Label Text="Start Date" FontSize="Medium" />
+                <DatePicker Date="{Binding StartDate, TargetNullValue=DateTime.Now, FallbackValue=DateTime.Now}" />
+                <Label Text="End Date" FontSize="Medium" />
+                <DatePicker Date="{Binding EndDate, TargetNullValue=DateTime.Now, FallbackValue=DateTime.Now}" />
+                <Label Text="Course Status" FontSize="Medium" />
+                <helpers:EnumBindablePicker x:TypeArguments="enums:CourseStatus" SelectedItem="{Binding CourseStatus}"></helpers:EnumBindablePicker>
+                <Label Text="Instructor Name" FontSize="Medium" />
+                <Entry Text="{Binding InstructorName}" d:Text="Instructor Name" FontSize="Small" />
+                <Label Text="Instructor Phone" FontSize="Medium" />
+                <Entry Text="{Binding InstructorPhone}" d:Text="Instructor Phone" FontSize="Small" />
+                <Label Text="Instructor Email" FontSize="Medium" />
+                <Entry Text="{Binding InstructorEmail}" d:Text="Instructor Email" FontSize="Small" />
+                <Label Text="Display notifications for start and end of course?" FontSize="Medium" />
+                <Switch IsToggled="{Binding DisplayNotifications}" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

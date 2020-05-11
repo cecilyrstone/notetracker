@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:NoteTracker.ViewModels;assembly=NoteTracker"
+             mc:Ignorable="d"
+             x:Class="NoteTracker.Views.TermListPage"
+             Title="{Binding Title}">
+
+
+    <Shell.TitleView>
+        <Image Source="wgu_logo.png"
+               HorizontalOptions="Start"
+               VerticalOptions="Center" />
+    </Shell.TitleView>
+
+    <ContentPage.BindingContext>
+        <viewModels:TermListViewModel />
+    </ContentPage.BindingContext>
+
+    
+    <ContentPage.ToolbarItems>
+        <!--Put notification here-->
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <Label Text="Welcome!" FontSize="32" HorizontalOptions="Center" Margin="20, 0, 20, 0"></Label>
+        <Label Text="My Terms" FontSize="Title" HorizontalOptions="Center" Margin="20, 0, 20, 0"></Label>
+        <ListView x:Name="ItemsListView"
+                ItemsSource="{Binding Terms}"
+                VerticalOptions="FillAndExpand"
+                HasUnevenRows="true"
+                RefreshCommand="{Binding LoadItemsCommand}"
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                CachingStrategy="RecycleElement"
+                ItemTapped="OnItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10" BackgroundColor="{Binding BackgroundColor}">
+                            <Label Text="{Binding Name}" 
+                                d:Text="{Binding .}"
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                            <Label Text="{Binding StartText}" 
+                                d:Text="Item description"
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+                            <Label Text="{Binding EndText}" 
+                                   d:Text="Item description"
+                                   LineBreakMode="NoWrap"
+                                   Style="{DynamicResource ListItemDetailTextStyle}"
+                                   FontSize="13" />
+                            <StackLayout Padding="10" BackgroundColor="{Binding BackgroundColor}" Orientation="Horizontal">
+                                <Button x:Name="TermCourses" 
+                                        Text="Courses" 
+                                        BackgroundColor="DarkBlue" 
+                                        TextColor="White"
+                                        VerticalOptions="Center" 
+                                        Clicked="TermCourses_onClick" 
+                                        IsVisible="{Binding Expanded}" 
+                                        CommandParameter="{Binding Term.Id}" />
+                                <Button x:Name="EditTerm" 
+                                        Text="Edit" 
+                                        BackgroundColor="NavajoWhite" 
+                                        VerticalOptions="Center" 
+                                        Clicked="EditTerm_onClick" 
+                                        IsVisible="{Binding Expanded}" 
+                                        CommandParameter="{Binding Term.Id}" />
+                                <Button x:Name="DeleteTerm" 
+                                        Text="Delete" 
+                                        BackgroundColor="DarkRed" 
+                                        TextColor="White"
+                                        VerticalOptions="Center" 
+                                        Clicked="DeleteTerm_onClick" 
+                                        IsVisible="{Binding Expanded}" 
+                                        CommandParameter="{Binding Term.Id}" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="AddTerm" Text="Add a Term" BackgroundColor="Green" VerticalOptions="Center" Clicked="AddTerm_Clicked"></Button>
+    </StackLayout>
+
+</ContentPage>

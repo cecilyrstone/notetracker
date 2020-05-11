@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:NoteTracker.ViewModels;assembly=NoteTracker"
+             mc:Ignorable="d"
+             x:Class="NoteTracker.Views.EditNotePage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
+        <ToolbarItem Text="Save" Clicked="Save_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.BindingContext>
+        <viewModels:NoteViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Note Title" FontSize="Medium" />
+            <Entry Text="{Binding Title}" d:Text="Term Name" FontSize="Small" />
+            <Label Text="Note Body" FontSize="Medium" />
+            <Editor Text="{Binding Body}" IsSpellCheckEnabled="true" AutoSize="TextChanges"/>
+            <Label Text="Is Optional" FontSize="Medium" />
+            <Switch IsToggled="{Binding IsOptional}" />
+            <Label Text="Shared With" FontSize="Medium" />
+            <Entry Text="{Binding SharedWith}" d:Text="Shared With" FontSize="Small" />
+            <Button x:Name="ShareNote" Text="Share This Note" BackgroundColor="Blue" TextColor="White" VerticalOptions="Center" Clicked="ShareNote_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

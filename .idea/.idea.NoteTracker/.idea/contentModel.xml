@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Microsoft\Xamarin\NuGet\xamarin.android.arch.lifecycle.runtime\1.1.1.3\proguard\monoandroid90\proguard.txt" t="Include" />
+    <e p="C:\Microsoft\Xamarin\NuGet\xamarin.android.arch.lifecycle.viewmodel\1.1.1.3\proguard\monoandroid90\proguard.txt" t="Include" />
+    <e p="C:\Microsoft\Xamarin\NuGet\xamarin.android.support.animated.vector.drawable\28.0.0.3\proguard\monoandroid90\proguard.txt" t="Include" />
+    <e p="C:\Microsoft\Xamarin\NuGet\xamarin.android.support.compat\28.0.0.3\proguard\monoandroid90\proguard.txt" t="Include" />
+    <e p="C:\Microsoft\Xamarin\NuGet\xamarin.android.support.coordinaterlayout\28.0.0.3\proguard\monoandroid90\proguard.txt" t="Include" />
+    <e p="C:\Microsoft\Xamarin\NuGet\xamarin.android.support.design\28.0.0.3\proguard\monoandroid90\proguard.txt" t="Include" />
+    <e p="C:\Microsoft\Xamarin\NuGet\xamarin.android.support.media.compat\28.0.0.3\proguard\monoandroid90\proguard.txt" t="Include" />
+    <e p="C:\Microsoft\Xamarin\NuGet\xamarin.android.support.transition\28.0.0.3\proguard\monoandroid90\proguard.txt" t="Include" />
+    <e p="C:\Microsoft\Xamarin\NuGet\xamarin.android.support.v7.appcompat\28.0.0.3\proguard\monoandroid90\proguard.txt" t="Include" />
+    <e p="C:\Microsoft\Xamarin\NuGet\xamarin.android.support.v7.recyclerview\28.0.0.3\proguard\monoandroid90\proguard.txt" t="Include" />
+    <e p="C:\Microsoft\Xamarin\NuGet\xamarin.android.support.versionedparcelable\28.0.0.3\proguard\monoandroid90" t="Include">
+      <e p="proguard.txt" t="Include" />
+    </e>
+    <e p="C:\Microsoft\Xamarin\NuGet\xamarin.forms\4.3.0.908675\build\MonoAndroid10" t="Include">
+      <e p="proguard.cfg" t="Include" />
+    </e>
+    <e p="C:\Program Files (x86)\Android\android-sdk\platforms\android-28\data\res" t="IncludeRecursive" />
+    <e p="C:\Users\cdantam\.Rider2019.3\config\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\cdantam\.Rider2019.3\config\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\cdantam\.Rider2019.3\config\scratches" t="IncludeRecursive" />
+    <e p="C:\Users\cdantam\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\cdantam\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_NoteTracker.716718441.00" t="ExcludeRecursive" />
+    <e p="C:\wguRepos\NoteTracker" t="IncludeFlat">
+      <e p="NoteTracker" t="IncludeRecursive">
+        <e p="App.xaml" t="Include" />
+        <e p="App.xaml.cs" t="Include" />
+        <e p="AppShell.xaml" t="Include" />
+        <e p="AppShell.xaml.cs" t="Include" />
+        <e p="AssemblyInfo.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Models" t="Include">
+          <e p="Assessment.cs" t="Include" />
+          <e p="Course.cs" t="Include" />
+          <e p="Enums" t="Include">
+            <e p="AssessmentType.cs" t="Include" />
+            <e p="CourseStatus.cs" t="Include" />
+            <e p="ViewMode.cs" t="Include" />
+          </e>
+          <e p="Note.cs" t="Include" />
+          <e p="Notification.cs" t="Include" />
+          <e p="Term.cs" t="Include" />
+        </e>
+        <e p="NoteTracker.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="App.xaml.g.cs" t="Include" />
+              <e p="AppShell.xaml.g.cs" t="Include" />
+              <e p="NoteTracker.AssemblyInfo.cs" t="Include" />
+              <e p="Views" t="Include">
+                <e p="ItemDetailPage.xaml.g.cs" t="Include" />
+                <e p="NewTermPage.xaml.g.cs" t="Include" />
+                <e p="TermListPage.xaml.g.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="ViewModels" t="Include">
+          <e p="TermDetailViewModel.cs" t="Include" />
+          <e p="TermListViewModel.cs" t="Include" />
+        </e>
+        <e p="Views" t="Include">
+          <e p="ItemDetailPage.xaml" t="Include" />
+          <e p="ItemDetailPage.xaml.cs" t="Include" />
+          <e p="NewTermPage.xaml" t="Include" />
+          <e p="NewTermPage.xaml.cs" t="Include" />
+          <e p="TermListPage.xaml" t="Include" />
+          <e p="TermListPage.xaml.cs" t="Include" />
+        </e>
+      </e>
+      <e p="NoteTracker.Android" t="IncludeRecursive">
+        <e p="Assets" t="Include">
+          <e p="AboutAssets.txt" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="MainActivity.cs" t="Include" />
+        <e p="NoteTracker.Android.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="90" t="Include">
+              <e p="designtime" t="Include">
+                <e p="Resource.designer.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="Properties" t="Include">
+          <e p="AndroidManifest.xml" t="Include" />
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Resources" t="Include">
+          <e p="AboutResources.txt" t="Include" />
+          <e p="drawable" t="Include">
+            <e p="tab_about.png" t="Include" />
+            <e p="tab_feed.png" t="Include" />
+            <e p="xamarin_logo.png" t="Include" />
+          </e>
+          <e p="layout" t="Include">
+            <e p="Tabbar.xml" t="Include" />
+            <e p="Toolbar.xml" t="Include" />
+          </e>
+          <e p="mipmap-anydpi-v26" t="Include">
+            <e p="icon.xml" t="Include" />
+            <e p="icon_round.xml" t="Include" />
+          </e>
+          <e p="mipmap-hdpi" t="Include">
+            <e p="icon.png" t="Include" />
+            <e p="launcher_foreground.png" t="Include" />
+          </e>
+          <e p="mipmap-mdpi" t="Include">
+            <e p="icon.png" t="Include" />
+            <e p="launcher_foreground.png" t="Include" />
+          </e>
+          <e p="mipmap-xhdpi" t="Include">
+            <e p="icon.png" t="Include" />
+            <e p="launcher_foreground.png" t="Include" />
+          </e>
+          <e p="mipmap-xxhdpi" t="Include">
+            <e p="icon.png" t="Include" />
+            <e p="launcher_foreground.png" t="Include" />
+          </e>
+          <e p="mipmap-xxxhdpi" t="Include">
+            <e p="icon.png" t="Include" />
+            <e p="launcher_foreground.png" t="Include" />
+          </e>
+          <e p="values" t="Include">
+            <e p="colors.xml" t="Include" />
+            <e p="styles.xml" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="NoteTracker.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

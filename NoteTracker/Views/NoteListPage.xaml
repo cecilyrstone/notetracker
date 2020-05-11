@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:NoteTracker.ViewModels;assembly=NoteTracker"
+             mc:Ignorable="d"
+             x:Class="NoteTracker.Views.NoteListPage">
+<Shell.TitleView>
+        <Image Source="wgu_logo.png"
+               HorizontalOptions="Start"
+               VerticalOptions="Center" />
+    </Shell.TitleView>
+
+    <ContentPage.BindingContext>
+        <viewModels:NoteListViewModel />
+    </ContentPage.BindingContext>
+
+    
+    <ContentPage.ToolbarItems>
+        <!--Put notification here-->
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <Label Text="My Notes" FontSize="Title" HorizontalOptions="Center" Margin="20, 0, 20, 0"></Label>
+        <Label Text="{Binding Course.Name}" FontSize="Title" HorizontalOptions="Center" Margin="20, 0, 20, 0"></Label>
+        <ListView x:Name="NoteListView"
+                ItemsSource="{Binding Notes}"
+                VerticalOptions="FillAndExpand"
+                HasUnevenRows="true"
+                RefreshCommand="{Binding LoadItemsCommand}"
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                CachingStrategy="RecycleElement"
+                ItemTapped="OnItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10" BackgroundColor="{Binding BackgroundColor}">
+                            <Label Text="{Binding Note.Title}" 
+                                d:Text="{Binding .}"
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                            <StackLayout Padding="10" BackgroundColor="{Binding BackgroundColor}" Orientation="Horizontal">
+                                <Button x:Name="EditNote" 
+                                        Text="Edit" 
+                                        BackgroundColor="NavajoWhite" 
+                                        VerticalOptions="Center" 
+                                        Clicked="EditNote_onClick" 
+                                        IsVisible="{Binding Expanded}" 
+                                        CommandParameter="{Binding Note.Id}" />
+                                <Button x:Name="DeleteNote" 
+                                        Text="Delete" 
+                                        BackgroundColor="DarkRed" 
+                                        TextColor="White"
+                                        VerticalOptions="Center" 
+                                        Clicked="DeleteNote_onClick" 
+                                        IsVisible="{Binding Expanded}" 
+                                        CommandParameter="{Binding Note.Id}" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="AddNote" Text="Add a Note" BackgroundColor="Green" VerticalOptions="Center" Clicked="AddNote_Clicked"></Button>
+    </StackLayout>
+</ContentPage>

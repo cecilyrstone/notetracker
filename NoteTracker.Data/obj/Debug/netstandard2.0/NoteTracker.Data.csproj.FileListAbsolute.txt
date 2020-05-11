@@ -1,0 +1,8 @@
+C:\wguRepos\NoteTracker\NoteTracker.Data\bin\Debug\netstandard2.0\NoteTracker.Data.deps.json
+C:\wguRepos\NoteTracker\NoteTracker.Data\bin\Debug\netstandard2.0\NoteTracker.Data.dll
+C:\wguRepos\NoteTracker\NoteTracker.Data\bin\Debug\netstandard2.0\NoteTracker.Data.pdb
+C:\wguRepos\NoteTracker\NoteTracker.Data\obj\Debug\netstandard2.0\NoteTracker.Data.csprojAssemblyReference.cache
+C:\wguRepos\NoteTracker\NoteTracker.Data\obj\Debug\netstandard2.0\NoteTracker.Data.AssemblyInfoInputs.cache
+C:\wguRepos\NoteTracker\NoteTracker.Data\obj\Debug\netstandard2.0\NoteTracker.Data.AssemblyInfo.cs
+C:\wguRepos\NoteTracker\NoteTracker.Data\obj\Debug\netstandard2.0\NoteTracker.Data.dll
+C:\wguRepos\NoteTracker\NoteTracker.Data\obj\Debug\netstandard2.0\NoteTracker.Data.pdb
